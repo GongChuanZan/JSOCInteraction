@@ -7,9 +7,10 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
-		E258A1971BC7AA5200642ABB /* Alert.js in Resources */ = {isa = PBXBuildFile; fileRef = E258A1951BC7AA5200642ABB /* Alert.js */; settings = {ASSET_TAGS = (); }; };
-		E258A1981BC7AA5200642ABB /* CallJS.html in Resources */ = {isa = PBXBuildFile; fileRef = E258A1961BC7AA5200642ABB /* CallJS.html */; settings = {ASSET_TAGS = (); }; };
-		E258A19A1BC7B1FC00642ABB /* CallOC.html in Resources */ = {isa = PBXBuildFile; fileRef = E258A1991BC7B1FC00642ABB /* CallOC.html */; settings = {ASSET_TAGS = (); }; };
+		E248BB0C1CE195E8001578C8 /* JSOCInteraction.m in Sources */ = {isa = PBXBuildFile; fileRef = E248BB0B1CE195E8001578C8 /* JSOCInteraction.m */; };
+		E258A1971BC7AA5200642ABB /* Alert.js in Resources */ = {isa = PBXBuildFile; fileRef = E258A1951BC7AA5200642ABB /* Alert.js */; };
+		E258A1981BC7AA5200642ABB /* CallJS.html in Resources */ = {isa = PBXBuildFile; fileRef = E258A1961BC7AA5200642ABB /* CallJS.html */; };
+		E258A19A1BC7B1FC00642ABB /* CallOC.html in Resources */ = {isa = PBXBuildFile; fileRef = E258A1991BC7B1FC00642ABB /* CallOC.html */; };
 		E2E1B0171BC79AB800DDB574 /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = E2E1B0161BC79AB800DDB574 /* main.m */; };
 		E2E1B01A1BC79AB800DDB574 /* AppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = E2E1B0191BC79AB800DDB574 /* AppDelegate.m */; };
 		E2E1B01D1BC79AB800DDB574 /* ViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = E2E1B01C1BC79AB800DDB574 /* ViewController.m */; };
@@ -18,7 +19,7 @@
 		E2E1B0251BC79AB800DDB574 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = E2E1B0231BC79AB800DDB574 /* LaunchScreen.storyboard */; };
 		E2E1B0301BC79AB800DDB574 /* JSOCInteractionDemoTests.m in Sources */ = {isa = PBXBuildFile; fileRef = E2E1B02F1BC79AB800DDB574 /* JSOCInteractionDemoTests.m */; };
 		E2E1B03B1BC79AB800DDB574 /* JSOCInteractionDemoUITests.m in Sources */ = {isa = PBXBuildFile; fileRef = E2E1B03A1BC79AB800DDB574 /* JSOCInteractionDemoUITests.m */; };
-		E2E1B04A1BC79C1600DDB574 /* SecondViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = E2E1B0491BC79C1600DDB574 /* SecondViewController.m */; settings = {ASSET_TAGS = (); }; };
+		E2E1B04A1BC79C1600DDB574 /* SecondViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = E2E1B0491BC79C1600DDB574 /* SecondViewController.m */; };
 		E2E1B04C1BC7A30F00DDB574 /* JavaScriptCore.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = E2E1B04B1BC7A30F00DDB574 /* JavaScriptCore.framework */; };
 		E2EE4EE71BC8FAE400C3F642 /* UIKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = E2EE4EE61BC8FAE400C3F642 /* UIKit.framework */; };
 /* End PBXBuildFile section */
@@ -41,6 +42,8 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
+		E248BB0A1CE195E8001578C8 /* JSOCInteraction.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = JSOCInteraction.h; sourceTree = "<group>"; };
+		E248BB0B1CE195E8001578C8 /* JSOCInteraction.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = JSOCInteraction.m; sourceTree = "<group>"; };
 		E258A1951BC7AA5200642ABB /* Alert.js */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.javascript; path = Alert.js; sourceTree = "<group>"; };
 		E258A1961BC7AA5200642ABB /* CallJS.html */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.html; path = CallJS.html; sourceTree = "<group>"; };
 		E258A1991BC7B1FC00642ABB /* CallOC.html */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.html; path = CallOC.html; sourceTree = "<group>"; };
@@ -93,6 +96,15 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		E248BB091CE195AF001578C8 /* JSOCInteraction */ = {
+			isa = PBXGroup;
+			children = (
+				E248BB0A1CE195E8001578C8 /* JSOCInteraction.h */,
+				E248BB0B1CE195E8001578C8 /* JSOCInteraction.m */,
+			);
+			path = JSOCInteraction;
+			sourceTree = "<group>";
+		};
 		E258A1941BC7AA5200642ABB /* Resource */ = {
 			isa = PBXGroup;
 			children = (
@@ -128,6 +140,7 @@
 		E2E1B0141BC79AB800DDB574 /* JSOCInteractionDemo */ = {
 			isa = PBXGroup;
 			children = (
+				E248BB091CE195AF001578C8 /* JSOCInteraction */,
 				E258A1941BC7AA5200642ABB /* Resource */,
 				E2E1B0181BC79AB800DDB574 /* AppDelegate.h */,
 				E2E1B0191BC79AB800DDB574 /* AppDelegate.m */,
@@ -303,6 +316,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				E248BB0C1CE195E8001578C8 /* JSOCInteraction.m in Sources */,
 				E2E1B04A1BC79C1600DDB574 /* SecondViewController.m in Sources */,
 				E2E1B01D1BC79AB800DDB574 /* ViewController.m in Sources */,
 				E2E1B01A1BC79AB800DDB574 /* AppDelegate.m in Sources */,

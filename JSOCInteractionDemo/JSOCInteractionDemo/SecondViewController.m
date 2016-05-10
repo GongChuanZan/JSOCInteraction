@@ -7,8 +7,7 @@
 //
 
 #import "SecondViewController.h"
-// framework
-#import <JavaScriptCore/JavaScriptCore.h>
+#import "JSOCInteraction/JSOCInteraction.h"
 
 @interface SecondViewController () <UIWebViewDelegate>
 @property (weak, nonatomic) IBOutlet UIWebView *webView;
@@ -20,7 +19,6 @@
 - (void)viewDidLoad {
     [super viewDidLoad];
     // Do any additional setup after loading the view.
-    //网址
     //网址
     NSString *path = [[NSBundle mainBundle] pathForResource:@"CallOC" ofType:@"html"];
     NSURL* httpUrl = [NSURL fileURLWithPath:path];
@@ -35,19 +33,11 @@
 
 -(void)webViewDidFinishLoad:(UIWebView *)webView
 {
-    //网页加载完成调用此方法
-    
     //iOS调用js
-    
-    //首先创建JSContext 对象（此处通过当前webView的键获取到jscontext）
-    JSContext *context=[webView valueForKeyPath:@"documentView.webView.mainFrame.javaScriptContext"];
-    
-    //js调用iOS
-    //第一种情况
-    //其中callOC就是js的方法名称，赋给是一个block 里面是iOS代码
-    //此方法最终将打印出所有接收到的参数，js参数是不固定的 我们测试一下就知道
-    context[@"callOC"] = ^() {
-        NSArray *args = [JSContext currentArguments];
+    //网页加载完成调用此方法
+    [JSOCInteraction JSCallOCWebView:webView methods:@[@"callOC"] callBack:^(NSString *method, NSArray *params) {
+        NSLog(@"%@,%@",method,params);
+        NSArray *args = params;
         
         __block NSString *paramStr = @"";
         [args enumerateObjectsUsingBlock:^(id  _Nonnull obj, NSUInteger idx, BOOL * _Nonnull stop) {
@@ -65,7 +55,7 @@
         [alert addAction:action];
         [self presentViewController:alert animated:YES completion:nil];
 #endif
-    };
+    }];
     
 }
 
