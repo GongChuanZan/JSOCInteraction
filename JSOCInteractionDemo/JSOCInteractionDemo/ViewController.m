@@ -20,7 +20,6 @@
 
 @interface MyApplication : NSObject <TestJSObjectProtocol>
 
-
 @end
 
 @implementation MyApplication
@@ -33,6 +32,9 @@
 @end
 
 @interface ViewController () <UIWebViewDelegate>
+
+
+@property (nonatomic, strong) JSContext *context;
 
 @property (weak, nonatomic) IBOutlet UIWebView *webView;
 
@@ -66,12 +68,9 @@
 
 #pragma mark - event method
 - (IBAction)callJsClick:(id)sender {
-    //首先创建JSContext 对象（此处通过当前webView的键获取到jscontext）
-    JSContext *context=[_webView valueForKeyPath:@"documentView.webView.mainFrame.javaScriptContext"];
-    MyApplication *mApplication = [MyApplication new];
-    context[@"mApplication"] = mApplication;
+    
     NSString *alertJS=@"test()"; //准备执行的js代码
-    [context evaluateScript:alertJS];//通过oc方法调用js的alert
+    [_context evaluateScript:alertJS];//通过oc方法调用js的alert
 }
 
 
@@ -79,6 +78,12 @@
 -(void)webViewDidFinishLoad:(UIWebView *)webView
 {
     //网页加载完成调用此方法
+    if (!_context) {
+        //首先创建JSContext 对象（此处通过当前webView的键获取到jscontext）
+        _context=[_webView valueForKeyPath:@"documentView.webView.mainFrame.javaScriptContext"];
+        MyApplication *mApplication = [MyApplication new];
+        _context[@"mApplication"] = mApplication;
+    }
 }
 
 @end
