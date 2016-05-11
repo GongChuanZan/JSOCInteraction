@@ -31,6 +31,41 @@ pod 'JSOCInteractionDemo', '~> 0.0.2'
 $ pod install
 ```
 
+## Usage
+> JSOCInteraction类下的所有函数需在webView加载完毕后调用有效.
+#### Objective-C call Javascript method
+
+```objective-c
+NSString *alertJS=@"test()"; //准备执行的js代码
+
+[JSOCInteraction OCCallJSWebView:_webView methods:@[alertJS] callBack:^(BOOL success, NSError *error) {
+}];
+```
+
+#### Javascript call Objective-C method
+
+```objective-c
+[JSOCInteraction JSCallOCWebView:webView methods:@[@"callOC"] callBack:^(NSString *method, NSArray *params) {
+}];
+```
+
+#### Javascript call Objective-C class method
+
+```objective-c
+@protocol JSObjectProtocol <JSExport>
+- (NSString *)getVersion; // 这里的函数可根据JS内的调用函数去定义，如果函数多个可在这里添加
+@end
+
+@interface JSObject : NSObject <JSObjectProtocol>
+@end
+
+@implementation JSObject
+- (NSString *)getVersion{return @"1.0.0";}
+@end
+
+[JSOCInteraction JSCallClassWebView:webView name:@"mApplication" toObject:[JSObject new]];
+```
+
 ## Technical Support(QQ Group)
 331988014
 
