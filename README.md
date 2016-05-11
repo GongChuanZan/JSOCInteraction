@@ -68,7 +68,7 @@ NSString *alertJS=@"test()"; //准备执行的js代码
 ```
 
 ## Technical Support(QQ Group)
-331988014
+♨️331988014
 
 ## Features
 Use the `JavaScriptCore.framework` to implement this function
