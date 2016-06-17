@@ -1,5 +1,5 @@
 Pod::Spec.new do |s|
-  s.name     = 'JSOCInteractionDemo'
+  s.name     = 'JSOCInteraction'
   s.version  = '0.0.2'
  #s.license  = 'MIT'
   s.license = { :type => "MIT", :file => "LICENSE" }

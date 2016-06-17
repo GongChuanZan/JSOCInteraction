@@ -87,7 +87,9 @@ void execute(id self, SEL _cmd)
             context[obj] = ^() {
                 NSArray *args = [JSContext currentArguments];
                 if (block) {
-                    block(obj,args);
+                    dispatch_async(dispatch_get_main_queue(), ^{
+                        block(obj,args);
+                    });
                 }
             };
         }
@@ -110,7 +112,9 @@ void execute(id self, SEL _cmd)
             NSLog(@"%@",value);
         }
         if (block) {
-            block(YES,nil);
+            dispatch_async(dispatch_get_main_queue(), ^{
+                block(YES,nil);
+            });
         }
     }];
 }
