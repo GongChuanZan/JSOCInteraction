@@ -1,10 +1,10 @@
-# JSOCInteractionDemo
-利用JavaScriptCore实现的JS与OC交互的demo
+# JSOCInteraction
+利用JavaScriptCore实现的JS与OC交互的工具
 
 ![Demo](demo.gif)
 
 ## Authors
-JSOCInteractionDemo is brought to you by [GCZ](https://github.com/GongChuanZan)
+JSOCInteraction is brought to you by [GCZ](https://github.com/GongChuanZan)
 
 ## Installation with CocoaPods
 
@@ -22,7 +22,7 @@ $ gem install cocoapods
 source 'https://github.com/CocoaPods/Specs.git'
 platform :ios, '8.0'
 
-pod 'JSOCInteractionDemo', '~> 0.0.2'
+pod 'JSOCInteraction', '~> 0.0.3'
 ```
 
 然后，运行以下命令:
