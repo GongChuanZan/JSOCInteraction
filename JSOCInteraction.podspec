@@ -1,6 +1,6 @@
 Pod::Spec.new do |s|
   s.name     = 'JSOCInteraction'
-  s.version  = '0.0.5'
+  s.version  = '0.0.1'
  #s.license  = 'MIT'
   s.license = { :type => "MIT", :file => "LICENSE" }
   s.summary  = "A simple tool can easily implement the interaction between oc and js.
