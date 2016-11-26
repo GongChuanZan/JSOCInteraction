@@ -22,7 +22,7 @@ $ gem install cocoapods
 source 'https://github.com/CocoaPods/Specs.git'
 platform :ios, '8.0'
 
-pod 'JSOCInteraction', '~> 0.0.3'
+pod 'JSOCInteraction', '~> 0.0.7'
 ```
 
 然后，运行以下命令:
