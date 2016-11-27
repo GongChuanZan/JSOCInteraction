@@ -16,6 +16,7 @@
 #import <JavaScriptCore/JavaScriptCore.h>
 
 typedef void (^JSCallBackBlock)(NSString *method, NSArray *params);
+typedef id(^JSClassCallBackBlock)(NSArray *params);
 
 @interface JSOCInteraction : NSObject
 
@@ -64,5 +65,7 @@ typedef void (^JSCallBackBlock)(NSString *method, NSArray *params);
  *  @param block   结束回调
  */
 + (void)OCCallJSWebView:(UIWebView *)webView methods:(NSArray<NSString *> *)methods callBack:(void(^)(BOOL success,NSError *error))block;
+
++ (void)JSCallOCWebView:(UIWebView *)webView name:(NSString *)name method:(NSString *)method needReturnValue:(BOOL)needReturnValue callBack:(JSClassCallBackBlock)block;
 
 @end

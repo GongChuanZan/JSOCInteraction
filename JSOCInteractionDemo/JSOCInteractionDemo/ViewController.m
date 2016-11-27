@@ -12,16 +12,19 @@
 #import "JSOCInteraction/JSOCInteraction.h"
 
 // ================= separator line⬇️ ====================
-@protocol JSObjectProtocol <JSExport>
-- (NSString *)getVersion; // 这里的函数可根据JS内的调用函数去定义，如果函数多个可在这里添加
-@end
-
-@interface JSObject : NSObject <JSObjectProtocol>
-@end
-
-@implementation JSObject
-- (NSString *)getVersion{return @"1.0.0";}
-@end
+//@protocol JSObjectProtocol <JSExport>
+//- (NSString *)getVersion; // 这里的函数可根据JS内的调用函数去定义，如果函数多个可在这里添加
+//@end
+//
+//@interface JSObject : NSObject <JSObjectProtocol>
+//
+////- (void)addSel:
+//
+//@end
+//
+//@implementation JSObject
+//- (NSString *)getVersion{return @"1.0.0";}
+//@end
 // ================= separator line⬆️ ====================
 
 @interface ViewController () <UIWebViewDelegate>
@@ -61,6 +64,7 @@
     NSString *alertJS=@"test()"; //准备执行的js代码
     
     [JSOCInteraction OCCallJSWebView:_webView methods:@[alertJS] callBack:^(BOOL success, NSError *error) {
+//        return @"sdfsd"; // 这里有警告。。。
     }];
 }
 
@@ -69,7 +73,11 @@
 -(void)webViewDidFinishLoad:(UIWebView *)webView
 {
     //网页加载完成调用此方法
-    [JSOCInteraction JSCallClassWebView:webView name:@"mApplication" toObject:[JSObject new]];
+//    [JSOCInteraction JSCallClassWebView:webView name:@"mApplication" toObject:[JSObject new]];
+    
+    [JSOCInteraction JSCallOCWebView:webView name:@"mApplication" method:@"getVersion" needReturnValue:YES callBack:^id(NSArray *params) {
+        return @"1.0";
+    }];
 }
 
 @end
